@@ -63,7 +63,7 @@ void setup(){
       lcd_1.noCursor();
       lcd_1.setCursor(tx_bit, 1);
       lcd_1.print(tx_bit ? "1" : "0");
-  	  lcd_1.setCursor(byte_idx, 0);
+      lcd_1.setCursor(byte_idx, 0);
       lcd_1.cursor();
       
       delay(1000/TX_Bit_Raite);
