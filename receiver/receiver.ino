@@ -1,4 +1,4 @@
-#include <LiquidCrystal.h >
+#include <LiquidCrystal.h>
 
 // pinassinmnt
 #define RX_Data 1
@@ -23,7 +23,7 @@ void setup(){
   //inisolize the lcd to a 16 char by 2 ln disply
   lcd_1.begin(20, 4);
   
-  pinMode(TX_Data, INPUT);
+  pinMode(RX_Data, INPUT);
   pinMode(RX_Clock, INPUT);
   strcpy(message, "");
   //sets pin 'RX_Clock' to and intrupt that calls the "onClockPulse" whene the clock "rises" (form 0 -> 1)
@@ -31,14 +31,14 @@ void setup(){
 }
 
 void onClockPulse(){
-  bool rxbit = digitalRead(RX_Data);
+  bool rx_bit = digitalRead(RX_Data);
   
   if(bit_position == 8){
-    bit_position = 0
+    bit_position = 0;
   }
   
-  if (rx_bit(){
-    rx_byte  |= (ox80 >> bit_position);
+  if(rx_bit){
+    rx_byte  |= (0x80 >> bit_position);
   }
   
   bit_position += 1;
