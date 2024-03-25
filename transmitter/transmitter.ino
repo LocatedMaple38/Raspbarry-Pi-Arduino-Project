@@ -1,4 +1,4 @@
-#include <LiquidCrystal.h >
+#include <LiquidCrystal.h>
 
 // pinassinmnt
 #define TX_Data 1
@@ -22,7 +22,7 @@ void setup(){
   lcd_1.begin(20, 4);
 
   pinMode(TX_Data, OUTPUT);
-  pinMode(TX_Clok, OUTPUT);
+  pinMode(TX_Clock, OUTPUT);
   
   // set the curosor to top left and print the "message"
   lcd_1.setCursor(0, 0);
@@ -36,7 +36,7 @@ void setup(){
     lcd_1.setCursor(0, 1);
     lcd_1.print("       ");
     lcd_1.print(byte_idx, 0);
-    lcd_1.cursor()
+    lcd_1.cursor();
 
     // loops thru each bit of the byte in the letter most sanifacent bit first
     for(int bit_idx = 0; bit_idx < 8; bit_idx++){
