@@ -1,4 +1,5 @@
 #include <LiquidCrystal.h>
+#include <Wire.h>
 
 // pinassinmnt
 #define RX_Data 1
@@ -17,9 +18,12 @@ char message[16];
 volatile byte rx_byte = 0;
 volatile int bit_position = 0;
 volatile bool update_LCD_1 = true;
+int ADDS = 0
 
 void setup(){
-  
+
+  Wire.begin(ADDS);
+  Wire.onRequest(requestEvent);
   //inisolize the lcd to a 16 char by 2 ln disply
   lcd_1.begin(20, 4);
   
@@ -32,7 +36,7 @@ void setup(){
 
 void onClockPulse(){
   bool rx_bit = digitalRead(RX_Data);
-  
+
   if(bit_position == 8){
     bit_position = 0;
   }
@@ -66,4 +70,8 @@ void loop(){
       }
     }
   }
+}
+
+void requestEvent() {
+  Wire.write("UwUOwO");
 }
