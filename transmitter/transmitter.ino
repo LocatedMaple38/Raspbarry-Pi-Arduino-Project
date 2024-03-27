@@ -31,7 +31,7 @@ void setup(){
   // set the curosor to top left and print the "message"
   lcd_1.setCursor(0, 0);
   lcd_1.print(message);
-/*
+  
   // gose thrue all the byts in the "message"
   for(int byte_idx = 0; byte_idx < strlen(message); byte_idx++){
     char tx_byte = message[byte_idx];
@@ -61,9 +61,7 @@ void setup(){
       delay((1000/TX_Bit_Raite)/2);
       digitalWrite(TX_Clock, LOW);
     } 
-
   }
-*/
 }
 
 
