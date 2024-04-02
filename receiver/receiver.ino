@@ -1,5 +1,4 @@
 #include <LiquidCrystal.h>
-#include <Wire.h>
 
 // pinassinmnt
 #define RX_Data 1
@@ -18,13 +17,10 @@ char message[16];
 volatile byte rx_byte = 0;
 volatile int bit_position = 0;
 volatile bool update_LCD_1 = true;
-int ADDS = 0
 
 void setup(){
 
-  Wire.begin(ADDS);
-  Wire.onRequest(requestEvent);
-  //inisolize the lcd to a 16 char by 2 ln disply
+  //inisolize the lcd to a 20 char by 4 ln disply (defalt is 16 char by 2 ln display)
   lcd_1.begin(20, 4);
   
   pinMode(RX_Data, INPUT);
