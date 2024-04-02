@@ -22,7 +22,7 @@ void setup(){
 
   Wire.begin();
   
-  //inisolize the lcd to a 16 char by 2 ln disply
+  //inisolize the lcd to a 20 char by 4 ln disply
   lcd_1.begin(20, 4);
 
   pinMode(TX_Data, OUTPUT);
