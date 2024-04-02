@@ -67,7 +67,3 @@ void loop(){
     }
   }
 }
-
-void requestEvent() {
-  Wire.write("UwUOwO");
-}
