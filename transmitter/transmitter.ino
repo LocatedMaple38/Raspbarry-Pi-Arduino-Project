@@ -1,5 +1,4 @@
 #include <LiquidCrystal.h>
-#include <Wire.h>
 
 // pinassinmnt
 #define TX_Data 1
@@ -19,8 +18,6 @@ LiquidCrystal lcd_1(lcd_RS, lcd_E, lcd_D4, lcd_D5, lcd_D6, lcd_D7);
 const char *message = "Hello, Wornd!";
 
 void setup(){
-
-  Wire.begin();
   
   //inisolize the lcd to a 20 char by 4 ln disply
   lcd_1.begin(20, 4);
@@ -45,8 +42,7 @@ void setup(){
     // loops thru each bit of the byte in the letter most sanifacent bit first
     for(int bit_idx = 0; bit_idx < 8; bit_idx++){
 
-      // tests if the bit that is set is a "1" or a "0" then 
-      // sets TX_Data HIGH or LOW depending
+      // tests if the bit that is set is a "1" or a "0" then sets TX_Data HIGH or LOW depending
       bool tx_bit = tx_byte & (0x80 >> bit_idx);
       digitalWrite(TX_Data, tx_bit);
       delay((1000/TX_Bit_Raite)/2);
@@ -66,11 +62,4 @@ void setup(){
 
 
 
-void loop(){
-  Wire.requestFrom(0, 6);    // request 6 bytes from slave device #8
-
-  while (Wire.available()) { // slave may send less than requested
-    char c = Wire.read(); // receive a byte as character
-    lcd_1.print(c, 0);         // print the character
-  }
-}
+void loop(){}
