@@ -12,7 +12,7 @@
 
 LiquidCrystal lcd_1(lcd_RS, lcd_E, lcd_D4, lcd_D5, lcd_D6, lcd_D7);
 
-char message[16];
+char message[100000000000];
 
 volatile byte rx_byte = 0;
 volatile int bit_position = 0;
