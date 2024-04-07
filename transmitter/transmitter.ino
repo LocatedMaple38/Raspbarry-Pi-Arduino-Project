@@ -1,29 +1,33 @@
+
 #include <LiquidCrystal.h>
 
 // pinassinmnt
-#define TX_Data 1
-#define TX_Clock 2
-#define lcd_RS 3
-#define lcd_E 4
-#define lcd_D4 5
-#define lcd_D5 6
-#define lcd_D6 7
-#define lcd_D7 8
+#define TX_Data 2
+#define TX_Clock 3
+#define lcd_RS 4
+#define lcd_E 5
+#define lcd_D4 6
+#define lcd_D5 7
+#define lcd_D6 8
+#define lcd_D7 9
 
 // targit transmit raite
-int TX_Bit_Raite = 5;
+int TX_Bit_Raite = 2;
 
 LiquidCrystal lcd_1(lcd_RS, lcd_E, lcd_D4, lcd_D5, lcd_D6, lcd_D7);
 
-const char *message = "Hello, Wornd!";
+const char *message = "Hewo daddy UwU, I love you";
 
 void setup(){
   
   //inisolize the lcd to a 20 char by 4 ln disply
   lcd_1.begin(20, 4);
 
+  pinMode(1, OUTPUT);
   pinMode(TX_Data, OUTPUT);
   pinMode(TX_Clock, OUTPUT);
+
+  digitalWrite(1, LOW);
   
   // set the curosor to top left and print the "message"
   lcd_1.setCursor(0, 0);
