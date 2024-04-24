@@ -1,5 +1,4 @@
 #include <SoftwareSerial.h>
-
 #include <LiquidCrystal.h>
 
 // pinassinmnt
@@ -24,14 +23,14 @@ void setup() {
 
   Serial.begin(9600);
   //inisolize the lcd to a 20 char by 4 ln disply (defalt is 16 char by 2 ln display)
-  //lcd_1.begin(20, 4);
+  lcd_1.begin(20, 4);
 
   pinMode(RX_Data, INPUT);
   pinMode(RX_Clock, INPUT);
   strcpy(message, "");
   //sets pin 'RX_Clock' to and intrupt that calls the "onClockPulse" whene the clock "rises" (form 0 -> 1)
   attachInterrupt(digitalPinToInterrupt(RX_Clock), onClockPulse, RISING);
-//  attachInterrupt(digitalPinToInterrupt(RX_Clock), onClockPulse, FALLING);
+  // attachInterrupt(digitalPinToInterrupt(RX_Clock), onClockPulse, FALLING);
 }
 
 void onClockPulse() {
